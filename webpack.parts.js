@@ -1,6 +1,15 @@
+const fs = require("fs");
 const path = require("path");
 
-exports.devServer = ({ host, port, stats = "errors-only" } = {}) => ({
+exports.devServer = (
+  {
+    publicPath,
+    host,
+    port,
+    stats = "errors-only",
+    disableHostCheck = true
+  } = {}
+) => ({
   devServer: {
     historyApiFallback: true,
     stats,
@@ -10,6 +19,8 @@ exports.devServer = ({ host, port, stats = "errors-only" } = {}) => ({
       errors: true,
       warnings: true
     },
+    publicPath,
+    disableHostCheck,
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
@@ -49,3 +60,30 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
     ]
   }
 });
+
+const findByExtension = (arr, regex) => arr.find(item => item.match(regex));
+const ASSETS_CONFIG_PATH = path.join(__dirname, "assets.config.json");
+
+module.exports.generateAssetsConfig = () => {
+  return function() {
+    this.plugin("done", statsData => {
+      const stats = statsData.toJson();
+      if (!stats.errors.length) {
+        const { assetsByChunkName: { src } } = stats;
+        const js = findByExtension(src, /\.js$/);
+        const css = findByExtension(src, /\.css$/);
+
+        fs.writeFileSync(ASSETS_CONFIG_PATH, `${JSON.stringify({ css, js })}`);
+      }
+    });
+  };
+};
+
+const requireNoCache = assetsPath => {
+  delete require.cache[require.resolve(assetsPath)];
+  return require(assetsPath);
+};
+
+module.exports.reload = () => requireNoCache(ASSETS_CONFIG_PATH);
+
+module.exports.load = () => require(ASSETS_CONFIG_PATH);

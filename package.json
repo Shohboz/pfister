@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline",
+    "start": "node dist/index.js",
+    "build": "babel lib -d dist",
+    "server:dev": "nodemon lib/index.js --watch lib --watch assets.config.json --ignore assets/ --exec babel-node --delay 1",
+    "client:dev": "webpack-dev-server --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,6 +22,7 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
@@ -28,6 +32,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "express": "^4.15.4",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.2.1",
     "react": "^15.6.1",

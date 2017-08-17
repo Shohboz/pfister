@@ -2,7 +2,11 @@ node_modules
 /coverage
 /build
 /distrib
+/dist
 .DS_Store
 .env
 *.log
 .directory
+assets.config.*
+*_secret.env
+

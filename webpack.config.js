@@ -5,9 +5,8 @@ const CONFIG_PATH = "config/webpack";
 
 const PATHS = {
   shared: path.resolve(__dirname, "shared"),
-  client: path.resolve(__dirname, "client")
+  src: path.resolve(__dirname, "client")
 };
-PATHS["src"] = PATHS["client"];
 
 const TARGET = process.env.npm_lifecycle_event;
 process.env.BABEL_ENV = TARGET;
@@ -44,7 +43,8 @@ module.exports = require("webpack-merge").smart(
         jQuery: "jquery",
         $: "jquery",
         "window.jQuery": "jquery"
-      })
+      }),
+      parts.generateAssetsConfig()
     ],
 
     resolve: {
