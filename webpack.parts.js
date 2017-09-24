@@ -1,5 +1,35 @@
 const fs = require("fs");
 const path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+exports.fontLoader = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
+      }
+    ]
+  }
+});
+
+exports.styleLoader = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.css$|\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader", "sass-loader"]
+        })
+      }
+    ]
+  }
+});
 
 exports.devServer = (
   {

@@ -1,0 +1,38 @@
+.rtl {
+  direction: rtl;
+}
+.rtl * {
+  direction: ltr;
+}
+
+.col-fixed-380 {
+  width: 380px;
+  position: fixed;
+  height: 100%;
+}
+
+.col-offset-380 {
+  padding-right: 395px;
+}
+
+@media (max-width: $screen-xs-max) {
+  .col-sm-12.col-offset-380 {
+    padding-right: initial;
+  }
+  .col-fixed-380 {
+    width: auto;
+    position: static;
+    height: auto;
+  }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .col-sm-12.col-offset-380 {
+    padding-right: initial;
+  }
+  .col-fixed-380 {
+    width: auto;
+    position: static;
+    height: auto;
+  }
+}

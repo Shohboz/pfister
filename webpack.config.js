@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require("path");
 const parts = require("./webpack.parts");
 const CONFIG_PATH = "config/webpack";
@@ -24,6 +25,9 @@ const environment = (target => {
 
 module.exports = require("webpack-merge").smart(
   parts.babelLoader(),
+  parts.styleLoader(),
+  parts.fontLoader(),
+  parts.loadImages(),
   {
     context: PATHS.src,
 
@@ -44,6 +48,7 @@ module.exports = require("webpack-merge").smart(
         $: "jquery",
         "window.jQuery": "jquery"
       }),
+      new ExtractTextPlugin("static/bundle.[hash:8].css", { allChunks: true }),
       parts.generateAssetsConfig()
     ],
 
