@@ -9,4 +9,4 @@ node_modules
 .directory
 assets.config.*
 *_secret.env
-
+lib/shared

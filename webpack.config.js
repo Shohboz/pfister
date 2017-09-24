@@ -48,6 +48,10 @@ module.exports = require("webpack-merge").smart(
     ],
 
     resolve: {
+      alias: {
+        shared: PATHS.shared,
+        components: path.resolve(PATHS.shared, "components")
+      },
       modules: ["node_modules", PATHS.src],
       extensions: [".js"]
     }
