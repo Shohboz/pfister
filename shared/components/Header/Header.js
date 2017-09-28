@@ -6,7 +6,13 @@ import {
 } from "react-router-dom";
 
 const styles = {
-  brand: {
+  actions: {
+    paddingTop: 14,
+    fontSize: "1.7rem",
+    position: "absolute",
+    zIndex: 1000
+  },
+  logo: {
     position: "absolute",
     width: "100%",
     left: 0,
@@ -15,12 +21,6 @@ const styles = {
     margin: "auto",
     backgroundSize: "contain",
     height: 34
-  },
-  actions: {
-    paddingTop: 14,
-    fontSize: "1.7rem",
-    position: "absolute",
-    zIndex: 1000
   }
 }
 
@@ -38,7 +38,7 @@ const Header = ({ match: { params: { projectId } } }) => (
         </div>
       }
       <div className="navbar-header">
-        <span className="navbar-brand logo" style={styles.brand}></span>
+        <span className="navbar-brand logo" style={styles.logo}></span>
       </div>
     </div>
   </nav>

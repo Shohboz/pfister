@@ -2,14 +2,15 @@ const fs = require("fs");
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-exports.fontLoader = () => ({
+exports.fontLoader = (options = {}) => ({
   module: {
     rules: [
       {
         test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
         use: [
           {
-            loader: "file-loader"
+            loader: "file-loader",
+            options
           }
         ]
       }
