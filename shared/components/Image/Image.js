@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Wrapper = styled.div`
   padding: 0 0 20px;
 `;
 
@@ -10,7 +10,7 @@ const Image = styled.img`
 `;
 
 export default ({ url }) => (
-  <Container>
+  <Wrapper>
     <Image src={url} />
-  </Container>
+  </Wrapper>
 )
