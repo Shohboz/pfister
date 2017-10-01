@@ -4,8 +4,8 @@ import styled from "styled-components";
 import Item from "./Item";
 
 const masonryOptions = {
-  columnWidth: '.item',
-  itemSelector: '.item'
+  columnWidth: ".item",
+  itemSelector: ".item"
 };
 
 const Wrapper = styled.div`
@@ -29,12 +29,8 @@ export default ({ items }) => (
         disableImagesLoaded={false}
         updateOnEachImageLoad={false}
       >
-        {
-          items.map((el, idx) =>
-            <MasonryElement key={idx} data={el} />
-          )
-        }
+        {items.map((el, idx) => <MasonryElement key={idx} data={el} />)}
       </Masonry>
     </div>
   </div>
-)
+);

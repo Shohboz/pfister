@@ -17,4 +17,4 @@ export default ({ data: { src, alt } }) => (
       <StyledImage src={src} alt={alt} />
     </Link>
   </Wrapper>
-)
+);

@@ -13,4 +13,4 @@ export default ({ url }) => (
   <Wrapper>
     <Image src={url} />
   </Wrapper>
-)
+);
