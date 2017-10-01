@@ -1,29 +1,37 @@
 import React from "react";
+import styled from "styled-components";
 
-const styles = {
-  block: {
-    marginBottom: 20,
-    display: "block"
-  }
-}
+const Title = styled.h2`
+  margin-bottom: 20px;
+  display: block;
+`;
+
+const DateView = styled.span`
+  font-weight: 200;
+  font-size: 1rem;
+  margin-bottom: 40px;
+  display: block;
+`;
+
+const Aside = styled.aside`
+  width: 288px;
+`;
 
 export default () => (
-  <aside className="info fixed">
+  <Aside className="fixed">
     <div className="info-inner">
-      <h2 style={styles.block}>
-
+      <Title>
         Photo BEFORE
-
-      </h2>
+      </Title>
       <p>
         Вот это мои зубы ДО
       </p>
 
-      <span className="date">
+      <DateView>
         5 дней назад
-      </span>
+      </DateView>
 
       <p>Здесь должен быть какой-то текст... ывалфдывафыва фываф ыва фыв афыв а</p>
     </div>
-  </aside>
+  </Aside>
 )

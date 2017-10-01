@@ -1,18 +1,17 @@
 import React from "react";
 import Header from "components/Header";
+import styled from "styled-components";
 import { renderRoutes } from "react-router-config";
 
-const styles = {
-  Container: {
-    paddingTop: 100
-  }
-};
+const Wrapper = styled.div`
+  padding-top: 100px;
+`;
 
 export default ({ route }) => (
   <div>
     <Header />
-    <div style={styles.Container}>
+    <Wrapper>
       { renderRoutes(route.routes) }
-    </div>
+    </Wrapper>
   </div>
 )

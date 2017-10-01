@@ -2,6 +2,7 @@
   background-image: url("../images/logo.png");
   background-repeat: no-repeat;
   background-position: center;
+  visibility: hidden;
 }
 
 body {
@@ -49,22 +50,6 @@ span {
 p {
   line-height: 2.5rem;
   font-size: 1.5rem;
-}
-
-.date {
-  font-weight: 200;
-  font-size: 1rem;
-  margin-bottom: 40px;
-  display: block;
-}
-
-.info {
-  width: 288px;
-}
-
-figure {
-  width: 100vw;
-  height: 90vw;
 }
 
 /*

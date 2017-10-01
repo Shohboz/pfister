@@ -1,18 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 
-const styles = {
-  ImageContainer: {
-    padding: "0 0 20px"
-  },
-  Image: {
-    width: "100%"
-  }
-}
+const Container = styled.div`
+  padding: 0 0 20px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+`;
 
 export default ({ url }) => (
-  <div style={styles.ImageContainer}>
-    <img
-      style={styles.Image}
-      src={url} />
-  </div>
+  <Container>
+    <Image src={url} />
+  </Container>
 )

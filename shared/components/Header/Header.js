@@ -1,44 +1,20 @@
 import React from "react";
 import {
-  Link,
   Route,
   Switch
 } from "react-router-dom";
-
-const styles = {
-  actions: {
-    paddingTop: 14,
-    fontSize: "1.7rem",
-    position: "absolute",
-    zIndex: 1000
-  },
-  logo: {
-    position: "absolute",
-    width: "100%",
-    left: 0,
-    top: 9,
-    textAlign: "center",
-    margin: "auto",
-    backgroundSize: "contain",
-    height: 34
-  }
-}
+import Logo from "components/Logo";
+import Actions from "./Actions";
 
 const Header = ({ match: { params: { projectId } } }) => (
   <nav className="navbar navbar-default navbar-fixed-top">
     <div className="container">
       {
         projectId &&
-        <div className="actions" style={styles.actions}>
-          <Link
-            to="/"
-          >
-            <i className="fa fa-arrow-left" />
-          </Link>
-        </div>
+        <Actions />
       }
       <div className="navbar-header">
-        <span className="navbar-brand logo" style={styles.logo}></span>
+        <Logo className="navbar-brand logo" />
       </div>
     </div>
   </nav>
