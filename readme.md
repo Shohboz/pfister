@@ -6,5 +6,7 @@
 
   `# mkdir shared/node_modules`
 
+  `# ln -s "$(pwd)/shared/redux" "$(pwd)/shared/node_modules/redux"`
+
   `# ln -s "$(pwd)/shared/components" "$(pwd)/shared/node_modules/components"`
 
