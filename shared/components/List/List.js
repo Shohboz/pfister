@@ -1,29 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { load } from "redux/posts/actions";
+import { loadAll as load } from "redux/posts/actions";
 import { withRouter } from "react-router";
 import Gallery from "../Gallery";
 import Preloader from "../Preloader";
 import ErrorPage from "../ErrorPage";
 
-// const items = [
-//   { src: "https://dummyimage.com/600x100/8ed4cc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x400/abc4cc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x400/8ed4cc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x300/8eaaac/ffffff.png" },
-//   { src: "https://dummyimage.com/600x300/bed4bc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x300/eedecc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x300/8ed4cc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x400/8eaaac/ffffff.png" },
-//   { src: "https://dummyimage.com/600x500/bed4bc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x400/bedecc/ffffff.png" },
-//   { src: "https://dummyimage.com/600x400/8ed4cc/ffffff.png" }
-// ];
-
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(loadAll());
+    dispatch(load());
   }
 
   render() {

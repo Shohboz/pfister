@@ -9,7 +9,7 @@ import API from "redux/api/posts";
 export function loadAll() {
   return dispatch => {
     dispatch(loadStart());
-    return API.get(id)
+    return API.get()
       .then(json => {
         return dispatch(receiveList(json));
       })
@@ -26,7 +26,7 @@ function loadStart() {
 function receiveList(json) {
   return {
     type: REQUEST_SUCCESS,
-    list: json.list,
+    payload: json.list,
     receivedAt: Date.now()
   };
 }

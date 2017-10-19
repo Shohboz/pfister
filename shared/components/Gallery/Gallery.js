@@ -1,7 +1,7 @@
 import React from "react";
 import Masonry from "react-masonry-component";
 import styled from "styled-components";
-import Item from "./Item";
+import Thumbnail from "./Thumbnail";
 
 const masonryOptions = {
   columnWidth: ".item",
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const MasonryElement = ({ data }) => (
   <Wrapper className="col-md-4 col-sm-6 col-xs-12 item">
-    <Item data={data} />
+    <Thumbnail data={data} />
   </Wrapper>
 );
 
@@ -29,7 +29,7 @@ export default ({ items }) => (
         disableImagesLoaded={false}
         updateOnEachImageLoad={false}
       >
-        {items.map((el, idx) => <MasonryElement key={idx} data={el} />)}
+        {items.map(el => <MasonryElement key={el.id} data={el} />)}
       </Masonry>
     </div>
   </div>
