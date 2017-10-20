@@ -7,7 +7,10 @@ import { configureStore } from "shared/redux/configureStore";
 import routes from "shared/routes";
 import "shared/initializers";
 
-const store = configureStore();
+const preloadedState = window.__PRELOADED_STATE__;
+delete window.__PRELOADED_STATE__;
+
+const store = configureStore(preloadedState);
 
 const AppRouter = () => {
   return (

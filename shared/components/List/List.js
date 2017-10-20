@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { loadAll as load } from "redux/posts/actions";
 import { withRouter } from "react-router";
 import Gallery from "../Gallery";
@@ -7,6 +8,10 @@ import Preloader from "../Preloader";
 import ErrorPage from "../ErrorPage";
 
 class App extends Component {
+  static fetchData(store) {
+    return store.dispatch(load());
+  }
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(load());
@@ -41,5 +46,8 @@ const mapStateToProps = state => {
     isFetching
   };
 }
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ load }, dispatch);
 
 export default withRouter(connect(mapStateToProps)(App));
