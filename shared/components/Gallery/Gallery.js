@@ -13,9 +13,9 @@ const Wrapper = styled.div`
   padding-right: 0px;
 `;
 
-const MasonryElement = ({ data }) => (
+const MasonryElement = ({ data: { id, thumbnail, title } }) => (
   <Wrapper className="col-md-4 col-sm-6 col-xs-12 item">
-    <Thumbnail data={data} />
+    <Thumbnail id={id} thumbnail={thumbnail} title={title} />
   </Wrapper>
 );
 

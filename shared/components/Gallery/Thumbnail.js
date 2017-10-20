@@ -11,7 +11,7 @@ const StyledImage = styled.img`
   max-width: 100%;
 `;
 
-export default ({ data: { id, thumbnail, title } }) => (
+export default ({ id, thumbnail, title }) => (
   <Wrapper>
     <Link to={`/p/${id}`}>
       <StyledImage src={thumbnail} alt={title} />
