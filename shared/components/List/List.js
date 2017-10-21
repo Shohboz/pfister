@@ -39,7 +39,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { posts: { isFetching, errors, list } } = state;
+  const { posts: { main: { isFetching, errors, list } } } = state;
   return {
     errors,
     list,
