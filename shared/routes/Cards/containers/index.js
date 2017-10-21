@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { loadAll as load } from "redux/posts/actions";
 import { withRouter } from "react-router";
-import Gallery from "../Gallery";
-import Preloader from "../Preloader";
-import ErrorPage from "../ErrorPage";
+import Gallery from "components/Gallery";
+import Preloader from "components/Preloader";
+import ErrorPage from "components/ErrorPage";
 
 class App extends Component {
   static fetchData(store) {

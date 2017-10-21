@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./layouts/Layout";
 import Card from "./components/Card";
-import List from "./components/List";
+import Cards from "./routes/Cards";
 import NotFound from "./components/NotFound";
 
 const routes = [
@@ -11,7 +11,7 @@ const routes = [
       {
         exact: true,
         path: "/",
-        component: List
+        component: Cards
       },
       {
         path: "/p/:projectId",
@@ -19,7 +19,7 @@ const routes = [
       },
       {
         path: "/p/",
-        component: List
+        component: Cards
       },
       {
         path: "*",
