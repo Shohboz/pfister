@@ -23,16 +23,10 @@ class App extends Component {
     return (
       <div>
         {isFetching &&
-          <div
-            className="row middle-xs center-xs">
+          <div className="row middle-xs center-xs">
             <Preloader />
           </div>}
-        {!isFetching &&
-          !errors &&
-          <Card
-            {...this.props}
-            data={data}
-          />}
+        {!isFetching && !errors && <Card {...data} />}
         {errors && <ErrorPage errors={errors} />}
       </div>
     );
@@ -44,9 +38,8 @@ const mapStateToProps = state => {
   return {
     ...current
   };
-}
+};
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ load }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ load }, dispatch);
 
 export default withRouter(connect(mapStateToProps)(App));

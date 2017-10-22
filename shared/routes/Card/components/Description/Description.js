@@ -17,14 +17,14 @@ const Aside = styled.aside`
   width: 288px;
 `;
 
-export default () => (
+export default ({ title, description, text }) => (
   <Aside className="fixed">
     <div className="info-inner">
       <Title>
-        Photo BEFORE
+        {title}
       </Title>
       <p>
-        Вот это мои зубы ДО
+        {description}
       </p>
 
       <DateView>
@@ -32,7 +32,7 @@ export default () => (
       </DateView>
 
       <p>
-        Здесь должен быть какой-то текст... ывалфдывафыва фываф ыва фыв афыв а
+        {text}
       </p>
     </div>
   </Aside>
