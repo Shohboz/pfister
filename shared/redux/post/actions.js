@@ -19,7 +19,7 @@ function loadStart() {
 function receiveData(json) {
   return {
     type: REQUEST_SUCCESS,
-    data: json,
+    payload: json,
     receivedAt: Date.now()
   };
 }
