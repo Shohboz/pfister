@@ -8,8 +8,9 @@ import Preloader from "components/Preloader";
 import ErrorPage from "components/ErrorPage";
 
 class App extends Component {
-  static fetchData(store) {
-    return store.dispatch(load());
+  static fetchData(store, params) {
+    const { projectId } = params;
+    return store.dispatch(load(projectId));
   }
 
   componentDidMount() {
