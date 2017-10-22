@@ -1,6 +1,6 @@
 import React from "react";
-import Description from "../Description";
-import ImageContainer from "../ImageContainer";
+import Description from "components/Description";
+import ImageContainer from "components/ImageContainer";
 
 export default () => (
   <div className="container">

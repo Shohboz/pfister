@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "./layouts/Layout";
-import Card from "./components/Card";
+import Card from "./routes/Card";
 import Cards from "./routes/Cards";
 import NotFound from "./components/NotFound";
 
