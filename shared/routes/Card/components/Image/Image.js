@@ -9,8 +9,8 @@ const Image = styled.img`
   width: 100%;
 `;
 
-export default ({ url }) => (
+export default ({ url, alt }) => (
   <Wrapper>
-    <Image src={url} />
+    <Image src={url} alt={alt} />
   </Wrapper>
 );

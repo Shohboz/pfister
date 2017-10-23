@@ -4,34 +4,20 @@ import { bindActionCreators } from "redux";
 import { loadAll as load } from "redux/posts/actions";
 import { withRouter } from "react-router";
 import Gallery from "components/Gallery";
+import { withLoader } from "components/HOC";
 import Preloader from "components/Preloader";
 import ErrorPage from "components/ErrorPage";
 
 class App extends Component {
-  static fetchData(store) {
-    return store.dispatch(load());
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(load());
-  }
-
   render() {
     const { errors, list, isFetching } = this.props;
     return (
       <div>
         {isFetching &&
-          <div
-            className="row middle-xs center-xs">
+          <div className="row middle-xs center-xs">
             <Preloader />
           </div>}
-        {!isFetching &&
-          !errors &&
-          <Gallery
-            {...this.props}
-            items={list}
-          />}
+        {!isFetching && !errors && <Gallery {...this.props} items={list} />}
         {errors && <ErrorPage errors={errors} />}
       </div>
     );
@@ -45,9 +31,14 @@ const mapStateToProps = state => {
     list,
     isFetching
   };
-}
+};
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ load }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ load }, dispatch);
 
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(
+  connect(mapStateToProps)(
+    withLoader(App)({
+      action: load
+    })
+  )
+);
