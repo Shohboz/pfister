@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 0 1px;
-  margin: 1px 0;
+  padding: 0 8px;
+  margin: 8px 0;
 `;
 
 const StyledImage = styled.img`
