@@ -4,12 +4,11 @@ import Image from "../Image";
 
 const NoFile = () => <div />;
 
-const Media = ({ files = {} }) => (
+const Media = ({ files = [] }) => (
   <div>
-    {Object.keys(files).map(key => {
-      const item = files[key];
-      const MediaFile = item.type === "image" ? Image : NoFile;
-      return <MediaFile key={key} url={item.src} alt={item.alt} />;
+    {files.map(({ type, id, src, alt = "" }) => {
+      const MediaFile = type === "image" ? Image : NoFile;
+      return <MediaFile key={id} url={src} alt={alt} />;
     })}
   </div>
 );
