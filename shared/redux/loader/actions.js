@@ -1,4 +1,4 @@
-import { REQUEST_COMPLETE, REQUEST_RESET } from "./constants";
+import { REQUEST_COMPLETE, RESET } from "./constants";
 
 export function loadComplete() {
   return {
@@ -8,6 +8,6 @@ export function loadComplete() {
 
 export function loadReset() {
   return {
-    type: REQUEST_RESET
+    type: RESET
   };
 }

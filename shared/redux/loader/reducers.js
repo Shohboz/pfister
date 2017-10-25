@@ -1,4 +1,4 @@
-import { REQUEST_COMPLETE, REQUEST_RESET } from "./constants";
+import { REQUEST_COMPLETE, RESET } from "./constants";
 
 const initialState = {
   isLoaded: false
@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
         isLoaded: true
       };
 
-    case REQUEST_RESET:
+    case RESET:
       return {
         ...state,
         isLoaded: null
