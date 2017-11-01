@@ -45,11 +45,6 @@ module.exports = require("webpack-merge").smart(
     },
 
     plugins: [
-      new webpack.ProvidePlugin({
-        jQuery: "jquery",
-        $: "jquery",
-        "window.jQuery": "jquery"
-      }),
       new ExtractTextPlugin("bundle.[hash:8].css", { allChunks: true }),
       parts.generateAssetsConfig()
     ],

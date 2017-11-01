@@ -10,9 +10,7 @@ export function loadAll() {
   return dispatch => {
     dispatch(loadStart());
     return API.get()
-      .then(json => {
-        return dispatch(receiveList(json));
-      })
+      .then(json => dispatch(receiveList(json)))
       .catch(errors => dispatch(receiveFail(errors)));
   };
 }
