@@ -1,11 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+import BackgroundVideo from "./Video";
+import HighlightedText from "./HighlightedText";
+
+const Container = styled.div`
+  margin-left: initial;
+  margin-right: initial;
+`;
 
 export default () => (
-  <div className="row">
-    <div className="col-md-12">
-      <div className="error-template">
-        <h1>404</h1>
-      </div>
-    </div>
-  </div>
+  <Container className="container">
+    <BackgroundVideo />
+    <HighlightedText />
+  </Container>
 );
