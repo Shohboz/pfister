@@ -11,7 +11,7 @@ const Video = styled.video`
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url('/images/404.png') no-repeat;
+  background: url("/images/404.png") no-repeat;
   background-size: cover;
   transition: 1s opacity;
 `;
