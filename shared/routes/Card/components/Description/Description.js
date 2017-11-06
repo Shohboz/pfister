@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FormattedRelative } from "react-intl";
 
 const Title = styled.h2`
   margin-bottom: 20px;
@@ -17,23 +18,16 @@ const Aside = styled.aside`
   width: 288px;
 `;
 
-export default ({ title, description, text }) => (
+export default ({ title, description, text, created_at }) => (
   <Aside className="fixed">
     <div className="info-inner">
-      <Title>
-        {title}
-      </Title>
-      <p>
-        {description}
-      </p>
-
+      <Title>{title}</Title>
+      <p>{description}</p>
       <DateView>
-        5 дней назад
+        <FormattedRelative value={created_at} />
       </DateView>
 
-      <p>
-        {text}
-      </p>
+      <p>{text}</p>
     </div>
   </Aside>
 );

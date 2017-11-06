@@ -13,10 +13,11 @@ class App extends Component {
     const { errors, data, isFetching } = this.props;
     return (
       <div>
-        {isFetching &&
+        {isFetching && (
           <div className="row middle-xs center-xs">
             <Preloader />
-          </div>}
+          </div>
+        )}
         {!isFetching && !errors && <Card {...data} />}
         {errors && <ErrorPage errors={errors} />}
       </div>
