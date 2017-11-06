@@ -3,6 +3,7 @@ node_modules
 /build
 /distrib
 /dist
+/public
 .DS_Store
 .env
 *.log
