@@ -7,10 +7,11 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  cursor: zoom-in;
 `;
 
-export default ({ url, alt }) => (
+export default ({ url, alt, onClickHandler }) => (
   <Wrapper>
-    <Image src={url} alt={alt} />
+    <Image onClick={onClickHandler} src={url} alt={alt} />
   </Wrapper>
 );
