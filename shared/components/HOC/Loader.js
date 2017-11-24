@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loadComplete, loadReset } from "redux/loader/actions";
 
@@ -12,11 +13,11 @@ export default WrappedComponent => ({ action, prop }) => {
     }
 
     componentDidMount() {
-      const { dispatch, isLoaded, match: { params } } = this.props;
+      const { dispatch, action, isLoaded, match: { params } } = this.props;
       if (isLoaded) {
         dispatch(loadReset());
       } else {
-        dispatch(action(params[prop]));
+        action(params[prop]);
       }
     }
 
@@ -25,5 +26,7 @@ export default WrappedComponent => ({ action, prop }) => {
     }
   }
 
-  return connect(({ loader: { isLoaded } }) => ({ isLoaded }))(Loader);
+  const mapDispatchToProps = dispatch => bindActionCreators({ action }, dispatch);
+
+  return connect(({ loader: { isLoaded } }) => ({ isLoaded }), mapDispatchToProps)(Loader);
 };

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import { loadAll as load } from "redux/posts/actions";
 import { withRouter } from "react-router";
 import Gallery from "../components/Gallery";
@@ -32,8 +31,6 @@ const mapStateToProps = state => {
     isFetching
   };
 };
-
-const mapDispatchToProps = dispatch => bindActionCreators({ load }, dispatch);
 
 export default withRouter(
   connect(mapStateToProps)(
