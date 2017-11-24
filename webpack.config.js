@@ -16,7 +16,7 @@ const environment = (target => {
   switch (target) {
     case "test":
       return "test";
-    case "build":
+    case "build:client":
       return "production";
     default:
       return "development";

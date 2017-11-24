@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import {
   REQUEST_FAIL,
   REQUEST_SUCCESS,

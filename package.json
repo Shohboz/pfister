@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "babel lib -d dist",
+    "build:client": "webpack -p",
     "build:langs": "babel scripts/translate.js | node",
     "start:server": "nodemon lib/index.js --watch lib --watch assets.config.json --ignore assets/ --exec babel-node --delay 1",
     "start:client": "webpack-dev-server --inline",

@@ -1,4 +1,3 @@
-import fetch from "isomorphic-fetch";
 import {
   REQUEST,
   REQUEST_SUCCESS,
