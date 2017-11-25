@@ -26,6 +26,7 @@ const environment = (target => {
 module.exports = require("webpack-merge").smart(
   parts.babelLoader(),
   parts.styleLoader(),
+  parts.eslintLoader(),
   parts.fontLoader({
     publicPath: "/static/"
   }),

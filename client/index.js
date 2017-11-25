@@ -6,7 +6,7 @@ import { renderRoutes } from "react-router-config";
 import { addLocaleData, IntlProvider } from "react-intl";
 import Cookie from "js-cookie";
 import fetch from "isomorphic-fetch";
-import { configureStore } from "shared/redux/configureStore";
+import configureStore from "shared/redux/configureStore";
 import routes from "shared/routes";
 import "shared/initializers";
 
@@ -29,7 +29,7 @@ const AppRouter = ({ messages, locale }) => (
   </IntlProvider>
 );
 
-fetch(`/public/assets/${locale}.json`)
+export default fetch(`/public/assets/${locale}.json`)
   .then(res => {
     if (res.status >= 400) {
       throw new Error("Bad response from server");

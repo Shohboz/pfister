@@ -1,18 +1,5 @@
-import {
-  REQUEST,
-  REQUEST_SUCCESS,
-  REQUEST_FAIL
-} from "./constants";
 import API from "redux/api/posts";
-
-export function loadAll() {
-  return dispatch => {
-    dispatch(loadStart());
-    return API.get()
-      .then(json => dispatch(receiveList(json)))
-      .catch(errors => dispatch(receiveFail(errors)));
-  };
-}
+import { REQUEST, REQUEST_SUCCESS, REQUEST_FAIL } from "./constants";
 
 function loadStart() {
   return {
@@ -32,5 +19,14 @@ export function receiveFail(errors) {
   return {
     type: REQUEST_FAIL,
     errors
+  };
+}
+
+export function loadAll() {
+  return dispatch => {
+    dispatch(loadStart());
+    return API.get()
+      .then(json => dispatch(receiveList(json)))
+      .catch(errors => dispatch(receiveFail(errors)));
   };
 }

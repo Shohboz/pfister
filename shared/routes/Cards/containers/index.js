@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadAll as load } from "redux/posts/actions";
 import { withRouter } from "react-router";
-import Gallery from "../components/Gallery";
+import { loadAll as load } from "redux/posts/actions";
 import { withLoader } from "components/HOC";
 import Preloader from "components/Preloader";
 import ErrorPage from "components/ErrorPage";
+import Gallery from "../components/Gallery";
 
 class App extends Component {
   render() {
     const { errors, list, isFetching } = this.props;
     return (
       <div>
-        {isFetching &&
+        {isFetching && (
           <div className="row middle-xs center-xs">
             <Preloader />
-          </div>}
+          </div>
+        )}
         {!isFetching && !errors && <Gallery {...this.props} items={list} />}
         {errors && <ErrorPage errors={errors} />}
       </div>

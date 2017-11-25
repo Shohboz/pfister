@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { load } from "redux/post/actions";
 import { withRouter } from "react-router";
+import { load } from "redux/post/actions";
 import { withLoader } from "components/HOC";
-import Card from "../components/Card";
 import Preloader from "components/Preloader";
 import ErrorPage from "components/ErrorPage";
+import Card from "../components/Card";
 
 class App extends Component {
   render() {

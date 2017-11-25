@@ -1,3 +1,3 @@
 import withLoader from "./Loader";
 
-export { withLoader };
+export { withLoader as default, withLoader };

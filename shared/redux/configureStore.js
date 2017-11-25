@@ -3,17 +3,14 @@ import thunkMiddleware from "redux-thunk";
 import reducers from "./reducers";
 
 let middleware = [];
-if (process.env.NODE_ENV !== 'production') {
-  const createLogger = require('redux-logger').createLogger;
+if (process.env.NODE_ENV !== "production") {
+  const { createLogger } = require("redux-logger");
   middleware = [createLogger()];
 }
 
-const configureStore = initialState => {
-  return createStore(
+export default initialState =>
+  createStore(
     reducers,
     initialState,
     applyMiddleware(thunkMiddleware, ...middleware)
   );
-};
-
-export { configureStore };
