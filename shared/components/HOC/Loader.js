@@ -13,9 +13,9 @@ export default WrappedComponent => ({ action, prop }) => {
     }
 
     componentDidMount() {
-      const { dispatch, action, isLoaded, match: { params } } = this.props;
+      const { action, loadReset, isLoaded, match: { params } } = this.props;
       if (isLoaded) {
-        dispatch(loadReset());
+        loadReset();
       } else {
         action(params[prop]);
       }
@@ -26,7 +26,7 @@ export default WrappedComponent => ({ action, prop }) => {
     }
   }
 
-  const mapDispatchToProps = dispatch => bindActionCreators({ action }, dispatch);
+  const mapDispatchToProps = dispatch => bindActionCreators({ action, loadReset }, dispatch);
 
   return connect(({ loader: { isLoaded } }) => ({ isLoaded }), mapDispatchToProps)(Loader);
 };
