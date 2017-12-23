@@ -6,19 +6,24 @@ const NoFile = () => <div />;
 
 const theme = {
   container: {
-    background: "rgba(0, 0, 0, 0.85)"
+    background: "#f3f3f5"
   },
   arrow: {
     background: "none",
-    fill: "white",
-    opacity: 0.1,
+    fill: "#000",
+    opacity: 0.25,
     transition: "opacity 200ms",
     ":hover": {
       opacity: 1
     }
   },
+  arrow__size__medium: {
+    '@media (min-width: 768px)': {
+      width: 45
+    },
+  },
   header: {
-    height: 10
+    height: 0
   },
   footer: {
     height: 10
