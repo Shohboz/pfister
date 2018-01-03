@@ -11,7 +11,7 @@ const Container = styled.div`
 
 export default injectIntl(({ intl }) => (
   <Container className="container">
-    <BackgroundVideo />
+    <BackgroundVideo poster={"/images/404.png"} video={"/videos/404"} />
     <HighlightedText intl={intl} />
   </Container>
 ));

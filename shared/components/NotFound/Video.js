@@ -16,15 +16,22 @@ const Video = styled.video`
   transition: 1s opacity;
 `;
 
-export default () => (
+export default ({
+  poster,
+  video,
+  autoplay = true,
+  muted = true,
+  loop = true,
+  playsInline = true
+}) => (
   <Video
-    poster="/images/404.png"
-    playsInline="true"
-    autoPlay="true"
-    muted="true"
-    loop="true"
+    poster={poster}
+    playsInline={playsInline}
+    autoPlay={autoplay}
+    muted={muted}
+    loop={loop}
   >
-    <source src="/videos/404.webm" type="video/webm" />
-    <source src="/videos/404.mp4" type="video/mp4" />
+    <source src={`${video}.webm`} type="video/webm" />
+    <source src={`${video}.mp4`} type="video/mp4" />
   </Video>
 );
