@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { FormattedRelative } from "react-intl";
+import PropTypes from "prop-types";
 
 const Title = styled.h2`
   display: block;
   line-height: 1.7;
-  letter-spacing: .8rem;
+  letter-spacing: 0.8rem;
 `;
 
 const DateView = styled.span`
@@ -29,7 +30,7 @@ const Text = styled.p`
   font-weight: lighter;
 `;
 
-export default ({ title, description, text, created_at }) => (
+const DescriptionComponent = ({ title, description, text, created_at }) => (
   <Aside className="fixed">
     <div className="info-inner">
       <Title>{title}</Title>
@@ -41,3 +42,12 @@ export default ({ title, description, text, created_at }) => (
     </div>
   </Aside>
 );
+
+DescriptionComponent.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  text: PropTypes.string,
+  created_at: PropTypes.number.isRequired
+};
+
+export default DescriptionComponent;
