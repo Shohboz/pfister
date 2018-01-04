@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Video = styled.video`
   position: fixed;
@@ -11,9 +11,12 @@ const Video = styled.video`
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url("/images/404.png") no-repeat;
-  background-size: cover;
-  transition: 1s opacity;
+  ${props =>
+    props.poster &&
+    css`
+      background: url(${props.poster}) no-repeat;
+      background-size: cover;
+    `} transition: 1s opacity;
 `;
 
 export default ({
