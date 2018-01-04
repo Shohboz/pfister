@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   line-height: 1.3;
@@ -21,17 +22,15 @@ const Text = styled.strong`
   left: -10px;
 `;
 
-class HighlightedText extends Component {
-  render() {
-    const { text } = this.props;
-    return (
-      <HighlightText {...this.props}>
-        <Text>
-          {text}
-        </Text>
-      </HighlightText>
-    );
-  }
-}
+const HighlightedText = props => (
+  <HighlightText {...props}>
+    <Text>{props.text}</Text>
+  </HighlightText>
+);
+
+HighlightedText.propTypes = {
+  text: PropTypes.string.isRequired,
+  primary: PropTypes.any
+};
 
 export { HighlightedText, Container };
