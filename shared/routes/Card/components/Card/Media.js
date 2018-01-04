@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Lightbox from "react-images";
+import PropTypes from "prop-types";
 import Image from "../Image";
 
 const NoFile = () => <div />;
@@ -18,9 +19,9 @@ const theme = {
     }
   },
   arrow__size__medium: {
-    '@media (min-width: 768px)': {
+    "@media (min-width: 768px)": {
       width: 45
-    },
+    }
   },
   header: {
     height: 0
@@ -74,16 +75,16 @@ export default class Media extends Component {
   };
 
   handleClickImage = () => {
-    if (this.state.current === this.props.files.length - 1) return;
+    if (this.state.current === this.props.items.length - 1) return;
 
     this.gotoNext();
   };
 
   render() {
-    const { files = [] } = this.props;
+    const { items } = this.props;
     return (
       <div>
-        {files.map(({ type, id, src, alt = "" }, idx) => {
+        {items.map(({ type, id, src, alt }, idx) => {
           const MediaFile = type === "image" ? Image : NoFile;
           return (
             <MediaFile
@@ -96,7 +97,7 @@ export default class Media extends Component {
         })}
         <Lightbox
           currentImage={this.state.current}
-          images={files}
+          images={items}
           isOpen={this.state.lightboxIsOpen}
           onClickImage={this.handleClickImage}
           onClickNext={this.gotoNext}
@@ -113,4 +114,19 @@ export default class Media extends Component {
       </div>
     );
   }
+
+  static propTypes = {
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        src: PropTypes.string.isRequired,
+        alt: PropTypes.string,
+        type: PropTypes.oneOf(["image", "video"])
+      })
+    )
+  };
+
+  static defaultProps = {
+    items: []
+  };
 }

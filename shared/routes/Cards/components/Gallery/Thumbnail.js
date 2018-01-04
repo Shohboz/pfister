@@ -12,17 +12,17 @@ const StyledImage = styled.img`
   max-width: 100%;
 `;
 
-const Thumbnail = ({ id, thumbnail, title }) => (
+const Thumbnail = ({ id, src, title }) => (
   <Wrapper>
     <Link to={`/p/${id}`}>
-      <StyledImage src={thumbnail} alt={title} />
+      <StyledImage src={src} alt={title} />
     </Link>
   </Wrapper>
 );
 
 Thumbnail.propTypes = {
   id: PropTypes.number.isRequired,
-  thumbnail: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
   title: PropTypes.string
 };
 
