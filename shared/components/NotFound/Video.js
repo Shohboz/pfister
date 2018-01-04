@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import PropTypes from "prop-types";
 
 const Video = styled.video`
   position: fixed;
@@ -19,7 +20,7 @@ const Video = styled.video`
     `} transition: 1s opacity;
 `;
 
-export default ({
+const BackgroundVideo = ({
   poster,
   video,
   autoplay = true,
@@ -38,3 +39,14 @@ export default ({
     <source src={`${video}.mp4`} type="video/mp4" />
   </Video>
 );
+
+BackgroundVideo.propTypes = {
+  poster: PropTypes.string.isRequired,
+  video: PropTypes.string.isRequired,
+  autoplay: PropTypes.bool,
+  muted: PropTypes.bool,
+  loop: PropTypes.bool,
+  playsInline: PropTypes.bool
+};
+
+export default BackgroundVideo;
