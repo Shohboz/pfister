@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ASSETS_CONFIG_NAME = "assets.config.json";
+const ASSETS_CONFIG_PATH = path.join(__dirname, ASSETS_CONFIG_NAME);
 
 exports.fontLoader = (options = {}) => ({
   module: {
@@ -106,7 +108,6 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
 });
 
 const findByExtension = (arr, regex) => arr.find(item => item.match(regex));
-const ASSETS_CONFIG_PATH = path.join(__dirname, "assets.config.json");
 
 module.exports.generateAssetsConfig = () => {
   return function() {
