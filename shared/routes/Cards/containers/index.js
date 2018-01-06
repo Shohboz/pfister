@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { loadAll as load } from "redux/posts/actions";
@@ -7,22 +7,13 @@ import Preloader from "components/Preloader";
 import ErrorPage from "components/ErrorPage";
 import Gallery from "../components/Gallery";
 
-class App extends Component {
-  render() {
-    const { errors, list, isFetching } = this.props;
-    return (
-      <div>
-        {isFetching && (
-          <div className="row middle-xs center-xs">
-            <Preloader />
-          </div>
-        )}
-        {!isFetching && !errors && <Gallery {...this.props} items={list} />}
-        {errors && <ErrorPage errors={errors} />}
-      </div>
-    );
-  }
-}
+const App = ({ errors, list, isFetching }) => (
+  <div>
+    {isFetching && <Preloader />}
+    {!isFetching && !errors && <Gallery items={list} />}
+    {errors && <ErrorPage errors={errors} />}
+  </div>
+);
 
 const mapStateToProps = state => {
   const { posts: { main: { isFetching, errors, list } } } = state;

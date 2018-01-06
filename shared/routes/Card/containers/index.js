@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { load } from "redux/post/actions";
@@ -7,22 +7,13 @@ import Preloader from "components/Preloader";
 import ErrorPage from "components/ErrorPage";
 import Card from "../components/Card";
 
-class App extends Component {
-  render() {
-    const { errors, data, isFetching } = this.props;
-    return (
-      <div>
-        {isFetching && (
-          <div className="row middle-xs center-xs">
-            <Preloader />
-          </div>
-        )}
-        {!isFetching && !errors && <Card {...data} />}
-        {errors && <ErrorPage errors={errors} />}
-      </div>
-    );
-  }
-}
+const App = ({ errors, data, isFetching }) => (
+  <div>
+    {isFetching && <Preloader />}
+    {!isFetching && !errors && <Card {...data} />}
+    {errors && <ErrorPage errors={errors} />}
+  </div>
+);
 
 const mapStateToProps = ({ posts: { current } }) => ({ ...current });
 

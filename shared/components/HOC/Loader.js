@@ -26,7 +26,11 @@ export default WrappedComponent => ({ action, prop }) => {
     }
   }
 
-  const mapDispatchToProps = dispatch => bindActionCreators({ action, loadReset }, dispatch);
+  const mapDispatchToProps = dispatch =>
+    bindActionCreators({ action, loadReset }, dispatch);
 
-  return connect(({ loader: { isLoaded } }) => ({ isLoaded }), mapDispatchToProps)(Loader);
+  return connect(
+    ({ loader: { isLoaded } }) => ({ isLoaded }),
+    mapDispatchToProps
+  )(Loader);
 };
