@@ -32,14 +32,10 @@ const theme = {
 };
 
 export default class Media extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      lightboxIsOpen: false,
-      current: 0
-    };
-  }
+  state = {
+    lightboxIsOpen: false,
+    current: 0
+  };
 
   openLightbox = (idx, event) => {
     event.preventDefault();
