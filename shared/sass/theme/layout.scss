@@ -9,6 +9,8 @@ body {
   line-height: 1.5;
 }
 
+@include no-scroll-bar();
+
 h1,
 .h1 {
   font-size: 5rem;
